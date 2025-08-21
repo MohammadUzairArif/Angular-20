@@ -1,0 +1,3 @@
+component hamara app folder ke ander banega 
+aur is command se banegaa 
+ng generate component component-name  OR ng g c comp-name
