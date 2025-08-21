@@ -26,5 +26,11 @@ export class DataBinding {
     }, 7000);
   }
 
+  showAlert() {
+    alert('Button clicked!');
+  }
   
+  onOptionChange(){
+    alert('Option changed!');
+  }
 }
