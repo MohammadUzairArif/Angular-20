@@ -1,0 +1,18 @@
+<p>signal works!</p>
+
+<!-- simple varible access -->
+<p>{{ courseName }}</p>
+
+<!-- signal vaariaable access like function () -->
+<p>{{ angularVersion() }}</p>
+
+<p>{{courseDuration()}}</p>
+
+<button (click)="changeDuration()">Change duration</button>
+<br>
+{{cityList()}}
+
+<button (click)="cityAdd()">new city add</button>
+<br>
+{{studentDetails().name}} -- {{studentDetails().city}}
+<button (click)="changeStudentDetails()">Change Student Details</button>
