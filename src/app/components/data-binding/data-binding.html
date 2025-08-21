@@ -1,0 +1,36 @@
+<p>data-binding works!</p>
+
+<!-- interpolation {{}} -->
+
+<table style="width: 100%;">
+    <tr>
+        <td>
+            <span>{{courseName}}</span>
+        </td>
+        <td>
+            <input type="text" value={{courseDuration}} name="" id="">
+        </td>
+        <td>{{courseStartDate}}</td>
+    </tr>
+    <!-- property binding -->
+     <tr>
+        <td>
+            <input type="text" [value]="courseName" name="" id="">
+        </td>
+        <td>
+            <input type="text" [minLength]="minTestScore" name="" id="">
+        </td>
+        <span [class]="spanClass">Demo</span>
+     </tr>
+     <!-- two way data binding using ngModel -->
+      <!-- isse hum  ye krskty h ke phely import krna hoga FormsModule isse ye hoga ke jese uper tu hum course number imput ma change krrhy thy tu wo us he input ma horha th yahan kia hogya ke is wale input ma krengy tu uper jahan jahn course name ha wo bh change horha hoga like vice-versa -->
+
+        <tr>
+            
+            <td>
+                <input type="text" [(ngModel)]="courseDuration" name="" id="">
+            </td>
+            <td>{{courseStartDate}}</td>
+</table>
+
+{{isCourseActive ? 'Course is active' : 'Course is not active'}}
