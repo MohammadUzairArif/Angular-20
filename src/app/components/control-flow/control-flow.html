@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="col-3">
+        <select [(ngModel)]="selectedCast" class="form-select">
+            <option>ABC cast</option>
+            <option>DEF cast</option>
+            <option>GHI cast</option>
+            <option>Other</option>
+        </select>
+    </div>
+    <!-- If else-if else -->
+    <div class="col-3">
+        @if (selectedCast === 'ABC cast') {
+        <span class="text-success">ABC cast is selected</span>
+        } @else if (selectedCast === 'DEF cast') {
+        <span class="text-warning">DEF cast is selected</span>
+        } @else if (selectedCast === 'GHI cast') {
+        <span class="text-danger">GHI cast is selected</span>
+        } @else {
+        <span class="text-info">Please select a valid cast</span>
+        }
+    </div>
+    <div class="col-3">
+        @if (selectedCast === 'Other') {
+        <input type="text" class="form-control" placeholder="Enter cast name">
+        }
+
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-3">
+        @if (isStudentActive() == true) {
+        <span class="text-success">Student is Active</span>
+        }@else {
+        <span class="text-danger">Student is Inactive</span>
+        }
+    </div>
+    <div class="col-4">
+        <button class="btn btn-success" (click)="changeStatus(true)">Make Active</button>
+        <button class="btn btn-warning" (click)="changeStatus(false)">Make Active</button>
+    </div>
+</div>
+
+<!-- for loop -->
+<div class="row">
+    <div class="col-3">
+        <ul>
+            @for (item of castList; track $index) {
+            <li>{{item}}</li>
+            }
+        </ul>
+    </div>
+    <div class="col-3">
+        @for (item of castList; track $index) {
+        <textarea [value]="item"></textarea>
+        }
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>S No</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>isActive</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of studentList; track $index) {
+                <tr>
+                    <td>{{$index + 1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.age}}</td>
+                    <td>{{item.isActive}}</td>
+                </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
