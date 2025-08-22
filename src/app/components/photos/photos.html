@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-warning">
+                Photos List
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sr No</th>
+                            <th>Title</th>
+                            <th>Url</th>
+                            <th>Thumbnail</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of photoList; track $index) {
+                        <tr>
+                            <td>{{$index + 1}}</td>
+                            <td>{{item.title}}</td>
+                            <td>{{item.url}}</td>
+                            <td>{{item.thumbnailUrl}}</td>
+                            <td>
+                                <button class="btn btn-danger" (click)="onDeletePhoto(item.id)">Delete</button>
+                                <button class="btn btn-primary" (click)="onEditPhoto(item)">Edit</button>
+                            </td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-warning">
+                Photos List
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="row">
+                        <div class="col-6">
+                            <label>Album id</label>
+                            <input type="text" name="albumId" [(ngModel)]="newPhoto.albumId" class="form-control" />
+                        </div>
+                        <div class="col-6">
+                            <label>Title</label>
+                            <input type="text" name="title" [(ngModel)]="newPhoto.title" class="form-control" />
+                        </div>
+                        <div class="col-6">
+                            <label>Url</label>
+                            <input type="text" name="url" [(ngModel)]="newPhoto.url" class="form-control" />
+                        </div>
+                        <div class="col-6">
+                            <label>Thumbnail</label>
+                            <input type="text" name="thumbnailUrl" [(ngModel)]="newPhoto.thumbnailUrl" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row pt-2">
+                        <div class="col-6">
+                            <button class="btn btn-secondary">Reset</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-success" (click)="onSavePhoto()">Save</button>
+                            <button class="btn btn-warning" (click)="onUpdatePhoto()">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
