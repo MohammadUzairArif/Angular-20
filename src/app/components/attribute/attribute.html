@@ -1,0 +1,51 @@
+<!-- dynamically agr condition pr kuch lagana ha tu ngClass se bh krskty aur simple se bh -->
+
+<p>attribute works!</p>
+<div class="row">
+    <div class="col-4">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>S No</th>
+                    <th>Name</th>
+                    <th>Age</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of studentList; track $index) {
+                <tr>
+                    <!-- Ngclass -->
+                    <td [ngClass]="item.isActive === true ? 'bg-success':'bg-warning'">{{$index + 1}}</td>
+
+                    <!-- simple class -->
+                    <td [className]="item.isActive === true ?'bg-success':'bg-danger'">{{item.name}}</td>
+                    <td>{{item.age}}</td>
+                   
+                </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+
+    <div class="col-8">
+
+        <h1 [ngClass]="themeColor">Hello i am green</h1>
+    </div>
+<hr>
+    <!-- ngStyle for dynamic styling use like key valur pair -->
+
+    <div class="col-3" [ngStyle]="{color: textColor}">
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, consequatur adipisci iste natus eveniet consectetur mollitia accusamus dolor harum veritatis!</p>
+    </div>
+</div>
+
+<hr>
+<div class="row">
+    <div class="col-4" [ngStyle]="myCss">
+        <h3>Styling</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+
+    </div>
+</div>
