@@ -5,6 +5,7 @@ import { Signal } from './components/signal/signal';
 import { Attribute } from './components/attribute/attribute';
 import { Notfound } from './components/notfound/notfound';
 import { Photos } from './components/photos/photos';
+import { User } from './components/user/user';
 
 export const routes: Routes = [
     {
@@ -31,6 +32,10 @@ export const routes: Routes = [
     {
         path: "photos",
         component: Photos
+    },
+    {
+        path: "user",
+        component: User
     },
     {
         path: "**",

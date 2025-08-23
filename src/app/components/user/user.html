@@ -1,2 +1,86 @@
-<p>user works!</p>
-<input type="text" placeholder="Enter your name">
+<div class="container mt-4">
+  <div class="row g-4">
+
+    <!-- Users Card List -->
+    <div class="col-8">
+      <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+          Users List
+        </div>
+        <div class="card-body">
+          <div class="row g-3">
+
+            <!-- Single User Card -->
+             @for (item of userList$ |async; track $index) {
+              <div class="col-md-6">
+              <div class="card shadow-sm border-0 h-100 user-card" style="transition: transform 0.2s ease, box-shadow 0.2s ease;">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.fullName}}</h5>
+                  <p class="card-text mb-1"><strong>Email:</strong>{{item.emailId}}</p>
+                  <p class="card-text mb-1"><strong>Mobile:</strong> {{item.mobileNumber}}</p>
+                  <!-- password -->
+                  <p class="card-text mb-1"><strong>Password:</strong> {{item.password}}</p>
+                  <p class="card-text"><strong>User ID:</strong>{{item.userId}}</p>
+                  <div class="d-flex gap-2">
+
+                    <button class="btn btn-sm btn-warning" (click)="onEdit(item)">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+             }
+            
+
+           
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="col-4">
+      <div class="card shadow-lg">
+        <div class="card-header bg-success text-white">
+          Add / Update User
+        </div>
+        <div class="card-body">
+          <form [formGroup] = "userForm">
+            <!-- <div class="mb-3">
+              <label class="form-label">User ID</label>
+              <input type="number" class="form-control" placeholder="Enter User ID">
+            </div> -->
+            <div class="mb-3">
+              <label class="form-label">Full Name</label>
+              <input type="text" formControlName="fullName" class="form-control" placeholder="Enter Full Name">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email ID</label>
+              <input type="email" formControlName="emailId" class="form-control" placeholder="Enter Email">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" formControlName="password" class="form-control" placeholder="Enter Password">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Mobile No</label>
+              <input type="text" formControlName="mobileNumber" class="form-control" placeholder="Enter Mobile Number">
+            </div>
+            
+            <div class="d-flex gap-2">
+              @if(userForm.controls['userId'].value === 0) {
+<button type="button" (click)="onSaveUser()" class="btn btn-primary">Save</button>
+            }@else {
+<button type="button"  class="btn btn-warning">Update</button>
+            }
+              
+              <button type="reset" (click)="onReset()" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
