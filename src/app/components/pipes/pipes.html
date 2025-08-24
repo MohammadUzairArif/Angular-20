@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-3">
+        <p>
+            {{title}}
+        </p>
+        <p>After uppercase => {{title |uppercase}}</p>
+        <p>After lowercase => {{courseName |lowercase}}</p>
+        <p>After titlecase => {{courseDuration |titlecase}}</p>
+
+    </div>
+    <div class="col-4">
+        <p>Current Date: {{currentDate}}</p>
+        <p>After date pipe: {{currentDate |date}}</p>
+        <p>After date pipe with format: {{currentDate | date:'fullDate'}}</p>
+        <p>After date pipe with format: {{currentDate | date:'shortDate'}}</p>
+        <p>After date pipe with format: {{currentDate | date:'dd/MM/yyyy'}}</p>
+    </div>
+
+    <div class="col-3">
+        <p>Roll No List: {{rollNoList}}</p>
+        <p>After Slice Pipe: {{rollNoList | slice:2}}</p>
+        <p>After Slice Pipe: {{rollNoList | slice:2:5}}</p>
+        <p>After Slice Pipe: {{rollNoList | slice:-4}}</p>
+        <p>After Slice Pipe: {{rollNoList | slice:-6:-2}}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <p>Student Object: {{studentObj | json}}</p>
+        <p>Student Name: {{studentObj.name}}</p>
+        <p>Student Age: {{studentObj.age}}</p>
+        <p>Student Course: {{studentObj.course}}</p>
+        <p>Student City: {{studentObj.address.city}}</p>
+        <p>Student State: {{studentObj.address.state}}</p>
+    </div>
+    <!-- using custom pipe naPipe -->
+     <div class="col-3">
+        <p>Student Marks: {{studentObj.name}}</p>
+        <p>Student marks {{studentObj.marks |na}}</p>
+     </div>
+</div>
