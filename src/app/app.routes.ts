@@ -7,6 +7,7 @@ import { Notfound } from './components/notfound/notfound';
 import { Photos } from './components/photos/photos';
 import { User } from './components/user/user';
 import { Pipes } from './components/pipes/pipes';
+import { Add } from './components/add/add';
 
 export const routes: Routes = [
     {
@@ -41,6 +42,10 @@ export const routes: Routes = [
     {
         path:"pipe",
         component: Pipes
+    },
+    {
+        path: "add",
+        component: Add
     },
     {
         path: "**",
